@@ -1,12 +1,14 @@
 import React from 'react';
 import ProgressBar from './ProgressBar';
+import {useSelector} from 'react-redux';
 
-class Monster extends React.Component {
-
+// class Monster extends React.Component {
   
+const Monster = () => {
 
-  render() {
-    return (
+  const monster = useSelector (state => state.fight.monster)
+
+  return (
       <section>
         <div className="container">
           <div className="row">
@@ -24,7 +26,7 @@ class Monster extends React.Component {
                     </div>
                   </div>
                 </div>
-                <ProgressBar pv='800' pvMax='800' bgType='bg-danger' faType='fa-heart' barName=' : pv' />
+                <ProgressBar pv={monster.pv} pvMax={monster.pvMax} bgType='bg-danger' faType='fa-heart' barName=' : pv' />
               </div>
             </div>
           </div>
@@ -32,6 +34,6 @@ class Monster extends React.Component {
       </section >
     )
   }
-}
+
 
 export default Monster;

@@ -3,9 +3,7 @@ import './Game.css';
 import Monster from './Monster';
 import PlayerList from './PlayerList';
 
-class App extends React.Component {
-  render() {
-    return (
+const App = () => (
       <div className="App">
         <Monster />
         <br></br>
@@ -14,7 +12,5 @@ class App extends React.Component {
         </section >
       </div>
     )
-  }
-}
 
 export default App;
