@@ -8,10 +8,8 @@ const ButtonCapacity = props =>{
     const dispatch = useDispatch();
 
     const combat = () => {
-        dispatch(hitMonster(5))
-          console.log('aie!')
-        dispatch(hitBack(5))
-        
+        dispatch(hitMonster({damage:25}));
+        dispatch(hitBack({damage:5, playerId:props.player.id}))
     }
         
         return (

@@ -17,15 +17,18 @@ export const fightSlice = createSlice({
     initialState,
     reducers: {
         hitMonster: (state, action) => {
-            state.monster.pv = state.monster.pv - action.payload
+            state.monster.pv = state.monster.pv - action.payload.damage
+
+            return state;
+        },
+        hitBack: (state, action) => {
+            state.players.find(player => player.id == action.payload.playerId).pv -= action.payload.damage
+           
+            return state;
         }
     },
-    hitBack: (state, action) => {
-        state.players.pv = state.players.pv - action.payload
-    }
 
 })
 
 export default fightSlice.reducer
-export const { hitMonster } = fightSlice.actions
-export const { hitBack } = fightSlice.actions
+export const { hitMonster, hitBack} = fightSlice.actions
